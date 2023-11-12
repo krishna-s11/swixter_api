@@ -30,7 +30,7 @@ app.use("images", express.static("images"))
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-    origin:[CLIENT_URL,"http://localhost:3000"],
+    origin: CLIENT_URL,
     credentials:true
 }));
 app.use(express.urlencoded({ extended: true }));
