@@ -29,10 +29,8 @@ app.use("images", express.static("uploads"))
 app.use("images", express.static("images"))
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors({
-    origin: [CLIENT_URL, "localhost:3000/"],
-    credentials:false
-}));
+app.use(cors());
+
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/api", userroutes, event);
