@@ -30,7 +30,8 @@ app.use("images", express.static("images"))
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-  origin: [CLIENT_URL, "https://swinxter.vercel.app"]
+  origin: [CLIENT_URL, "https://swinxter.vercel.app"],
+  credentials: true,
 }));
 
 app.use(express.urlencoded({ extended: true }));
