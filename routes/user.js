@@ -38,6 +38,10 @@ router.put(
   ]),
   userController.upload_image
 );
-
+router.post(
+  "/visited-users",
+  userController.visitedUsers
+);
+router.get("/recentusers", userController.recentUsers);
 
 module.exports = router;

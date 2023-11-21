@@ -530,5 +530,35 @@ if(!data.image){
       console.log(e);
       return res.status(500).send(e);
     }
+  },
+  async visitedUsers(req, res, next) {
+    const { visitedUserIds } = req.body;
+    console.log(visitedUserIds);
+    let visitedUsers = [];
+    visitedUserIds.map(async id => {
+      const data = await userModel.findById({ _id: id })
+      if (!data) {
+        return res.status(400).send("something went wrong");
+      } else {
+        visitedUsers.push(data);
+      }
+      res.status(200).send(visitedUsers);
+    })
+  },
+  async recentUsers(req,res,next){
+    let users = [];
+    try{
+      const data = await userModel.find();
+      if(!data){
+        return res.status(400).send("something went wrong");
+      }
+      else{
+        return res.status(200).send(data);
+      }
+    }
+    catch(e){
+      console.log(e);
+      return res.status(500).send(e);
+    }
   }
 };

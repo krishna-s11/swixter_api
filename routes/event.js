@@ -45,5 +45,4 @@ router.post(
   verifyToken,
   eventController.updateParticipantStatus
 );
-
 module.exports = router;

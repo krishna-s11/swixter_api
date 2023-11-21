@@ -335,5 +335,5 @@ console.log(req.files,"ALL FILES")
       console.error(error);
       return next();
     }
-  }
+  },
 };
