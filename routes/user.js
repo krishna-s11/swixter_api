@@ -28,7 +28,7 @@ router.get("/findOne/:id", userController.findOne);
 router.get("/search_user", userController.search_user);
 router.post("/logout/:id", userController.logout);
 router.put("/changePassword",verifyToken, userController.changePassword);
-
+router.get("/user_details/:id", userController.userdetail);
 router.put(
   "/upload_image/:userId",
   upload.fields([
