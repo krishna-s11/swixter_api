@@ -43,5 +43,9 @@ router.post(
   userController.visitedUsers
 );
 router.get("/recentusers", userController.recentUsers);
+router.put("/remove_friend/:id/:friendId", userController.removeFriend);
+router.put("/send_request/:id/:friendId", userController.sendFriendRequest);
+router.put("/cancel_request/:id/:friendId", userController.cancelFriendRequest);
+router.put("/accept_req/:id/:friendId", userController.accept_req);
 
 module.exports = router;

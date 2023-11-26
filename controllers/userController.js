@@ -545,6 +545,86 @@ if(!data.image){
       res.status(200).send(visitedUsers);
     })
   },
+  async removeFriend(req, res, next) {
+    const { id } = req.params;
+    const { friendId} = req.params;
+    try{
+      const data = await userModel.findById({_id: id});
+      const index = data.friends.indexOf(friendId);
+      data.friends.splice(index,1);
+      console.log(data.friends);
+      await data.save();
+      res.status(200).send("Friend removed succesfully");
+    }catch(e) {
+      res.status(400).send(e);
+      console.log(e);
+    }
+  },
+  async sendFriendRequest(req, res, next) {
+    const { id } = req.params;
+    const { friendId} = req.params;
+    try{
+      const send_data = await userModel.findById({_id: id});
+      send_data.sent_requests.push(friendId);
+      await send_data.save();
+      const recieved_req = await userModel.findById({_id: friendId});
+      recieved_req.friend_requests.push(id);
+      await recieved_req.save();
+      res.status(200).send("Friend request sent succesfully");
+    }catch(e) {
+      res.status(400).send(e);
+      console.log(e);
+    }
+  },
+  async sentFriendRequest(req, res, next) {
+    const { id } = req.params;
+    const { friendId} = req.params;
+    try{
+      const send_data = await userModel.findById({_id: id});
+      send_data.sent_requests.push(friendId);
+      await send_data.save();
+      const recieved_req = await userModel.findById({_id: friendId});
+      recieved_req.friend_requests.push(id);
+      await recieved_req.save();
+      res.status(200).send("Friend request sent succesfully");
+    }catch(e) {
+      res.status(400).send(e);
+      console.log(e);
+    }
+  },
+  async cancelFriendRequest(req, res, next) {
+    const { id } = req.params;
+    const { friendId} = req.params;
+    try{
+      const send_data = await userModel.findById({_id: id});
+      const send_index = send_data.sent_requests.indexOf(friendId);
+      send_data.sent_requests.splice(send_index);
+      await send_data.save();
+      const recieved_req = await userModel.findById({_id: friendId});
+      const rcvd_index = recieved_req.friend_requests.indexOf(id);
+      recieved_req.friend_requests.splice(rcvd_index);
+      await recieved_req.save();
+      res.status(200).send("Friend request cancelled succesfully");
+    }catch(e) {
+      res.status(400).send(e);
+      console.log(e);
+    }
+  },
+  async accept_req(req, res, next) {
+    const { id } = req.params;
+    const { friendId} = req.params;
+    try{
+      const data = await userModel.findById({_id: id});
+      const index = data.sent_requests.indexOf(friendId);
+      data.friend_requests.splice(index);
+      data.friends.push(friendId);
+      await data.save();
+      res.status(200).send("Friend Added succesfully");
+    }catch(e) {
+      res.status(400).send(e);
+      console.log(e);
+    }
+  },
   async recentUsers(req,res,next){
     let users = [];
     try{
