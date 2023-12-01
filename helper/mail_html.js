@@ -1,6 +1,6 @@
 const mailHtml = (data, link, text) => {
-    console.log(data,"=================================")
-    return `
+  console.log(data, "=================================");
+  return `
         <!DOCTYPE html>
         <html lang="en">
         <head>
@@ -74,8 +74,8 @@ const mailHtml = (data, link, text) => {
             </div>
         </body>
         </html>`;
-}
-const forgetMail =(name,OTP)=>{
+};
+const forgetMail = (name, OTP) => {
   return `
   <!DOCTYPE html>
   <html lang="en">
@@ -138,10 +138,10 @@ const forgetMail =(name,OTP)=>{
               <p><h4>This OTP is valid for a limited time. Please use it to reset your password.</h4></p>
               <p><h4>If you didn't request this OTP, please ignore this email.</h4></p>
               <p>Best regards,<br>https://hot-date.vercel.app/</p>
-              </div>`
-}
-const change_passMail = (title , name ,text)=>{
-return `<!DOCTYPE html>
+              </div>`;
+};
+const change_passMail = (title, name, text) => {
+  return `<!DOCTYPE html>
  <html lang="en">
  <head>
      <meta charset="UTF-8">
@@ -200,11 +200,10 @@ return `<!DOCTYPE html>
          <p><h4>${text}</h4></p>
          <p>Best regards,<br>https://hot-date.vercel.app/</p>
          </div>
-         `
-         
-}
+         `;
+};
 module.exports = {
-    mailHtml,
-forgetMail,
-change_passMail
-}
+  mailHtml,
+  forgetMail,
+  change_passMail,
+};

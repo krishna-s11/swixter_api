@@ -15,15 +15,13 @@ const Mailsend = (req, res, data) => {
   // Send the email
   transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
-      console.error('Email sending failed:', error);
-      return res.status(500).send({ error: 'Email sending failed' });
+      console.error("Email sending failed:", error);
+      return res.status(500).send({ error: "Email sending failed" });
     } else {
-      console.log('Email sent:', info.response);
-      return res.status(200).send({ message: 'Email sent successfully', info });
+      console.log("Email sent:", info.response);
+      return res.status(200).send({ message: "Email sent successfully", info });
     }
   });
 };
 
-
-module.exports = Mailsend
-
+module.exports = Mailsend;

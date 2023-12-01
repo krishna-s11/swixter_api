@@ -14,7 +14,7 @@ const UserSchema = new mongoose.Schema(
     DOB: { type: String },
     relocate: { type: Boolean, default: false },
     introduction: { type: String },
-    image:{ type: String,default:"" },
+    image: { type: String, default: "" },
     interests: {
       male_male: [String],
       female_female: [String],
@@ -25,6 +25,7 @@ const UserSchema = new mongoose.Schema(
     },
     marital_status: { type: String },
     slogan: { type: String },
+
     speaks: { type: String },
     race: { type: String },
     distance: { type: String },
@@ -40,10 +41,10 @@ const UserSchema = new mongoose.Schema(
     ethnic_background: { type: String },
     smoking: { type: String },
     tattoos: { type: String },
-    Drinking:{type:String},
-    Relationship:{type:String},
-    Drugs:{type:String},
-    Language:{type:String},
+    Drinking: { type: String },
+    Relationship: { type: String },
+    Drugs: { type: String },
+    Language: { type: String },
     piercings: { type: String },
     language: { type: String },
     circumcised: { type: String },
@@ -61,16 +62,13 @@ const UserSchema = new mongoose.Schema(
     images: [{ type: String }],
     videos: [{ type: String }],
     isLive: { type: Boolean, default: false },
-    friends: {type: Array, default: []},
-    friend_requests: {type: Array, default: []},
-    sent_requests: {type: Array, default: []},
     favouriteModels: [String],
     commission: { type: String },
     wallet: { type: Number, default: 0 },
     isVerify: { type: Boolean, default: false },
     modelVerify: { type: Boolean, default: false },
     otp: { type: String },
-    personName:{type:String},
+    personName: { type: String },
 
     couple: {
       person1: {
@@ -91,11 +89,11 @@ const UserSchema = new mongoose.Schema(
         sexuality: { type: String },
         relationship_status: { type: String },
         experience: { type: String },
-        person1_Name:{type:String},
-        Drinking:{type:String},
-        Relationship:{type:String},
-        Drugs:{type:String},
-        Language:{type:String}
+        person1_Name: { type: String },
+        Drinking: { type: String },
+        Relationship: { type: String },
+        Drugs: { type: String },
+        Language: { type: String },
       },
       person2: {
         gender: { type: String },
@@ -115,17 +113,18 @@ const UserSchema = new mongoose.Schema(
         sexuality: { type: String },
         relationship_status: { type: String },
         experience: { type: String },
-        person2_Name:{type:String},
-        Drinking:{type:String},
-        Relationship:{type:String},
-        Drugs:{type:String},
-        Language:{type:String}
+        person2_Name: { type: String },
+        Drinking: { type: String },
+        Relationship: { type: String },
+        Drugs: { type: String },
+        Language: { type: String },
       },
-    },isLogged:{type:Boolean,default:false}
+    },
+    isLogged: { type: Boolean, default: false },
   },
   {
     timestamps: true,
-  }
+  },
 );
 
 const User = mongoose.model("User", UserSchema);
