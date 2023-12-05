@@ -269,7 +269,7 @@ module.exports = {
   },
   async upload_image(req, res) {
     const { userId } = req.params;
-    console.log(userId);
+    console.log("running image upload")
     try {
       if (!userId) {
         return res.status(400).send("userId is required");

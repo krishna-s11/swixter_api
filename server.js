@@ -23,7 +23,7 @@ var corsOptions = {
     "http://localhost:3001",
     "http://localhost:3002",
     "https://hot-date.vercel.app",
-    "https://swinxter-v2.vercel.app"
+    "https://swinxter-v2.vercel.app",
   ],
   credentials: true,
 };

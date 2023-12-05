@@ -6,6 +6,7 @@ const travelSchema = new mongoose.Schema({
   name: { type: String },
   locationto: Object,
   startDate: { type: String },
+  resort: {type: String},
   endDate: { type: String },
   interested: [{ type: String }],
   description: { type: String },
